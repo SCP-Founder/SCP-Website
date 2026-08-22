@@ -1,111 +1,32 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b0d">
-  <meta name="description" content="SCP Founder — закрытая информационная сеть Фонда."
-  <title>SCP Founder — Secure Foundation Network</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808"><meta name="description" content="SCP Founder — Minecraft сервер во вселенной SCP">
+<title>SCP Founder — Minecraft Server</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="scanlines"></div>
-  <div class="noise"></div>
-
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="SCP Founder">
-      <span class="brand-mark">SCP</span>
-      <span class="brand-name">FOUNDER</span>
-    </a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#about">ФОНД</a>
-      <a href="#protocol">ПРОТОКОЛ</a>
-      <a href="#objects">ОБЪЕКТЫ</a>
-      <a href="#download">ДОСТУП</a>
-    </nav>
-    <div class="top-status"><i></i> SYSTEM ONLINE</div>
-  </header>
-
-  <main id="top">
-    <section class="hero section-grid">
-      <div class="hero-copy">
-        <div class="eyebrow"><span>SECURE CHANNEL</span> // CONNECTION ESTABLISHED</div>
-        <h1>WE CONTAIN.<br><em>WE CONTROL.</em></h1>
-        <p class="hero-text">SCP Founder — закрытая сеть Фонда, созданная для тех, кто работает за пределами обычного мира. Доступ к данным предоставляется только авторизованному персоналу.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#about">ВХОД В СИСТЕМУ <span>→</span></a>
-          <a class="button button-ghost" href="#objects">БАЗА ОБЪЕКТОВ</a>
-        </div>
-      </div>
-      <div class="hero-terminal" aria-label="Системный терминал">
-        <div class="terminal-head"><span>FOUNDATION//NODE-01</span><span>ENCRYPTED</span></div>
-        <div class="terminal-body">
-          <p><b>&gt;</b> booting SCP_FOUNDER...</p>
-          <p><b>&gt;</b> identity verified <span class="ok">[OK]</span></p>
-          <p><b>&gt;</b> containment network <span class="ok">[ONLINE]</span></p>
-          <p><b>&gt;</b> threat level <span class="danger">ELEVATED</span></p>
-          <p><b>&gt;</b> personnel clearance <span id="clearance">LEVEL 3</span></p>
-          <p class="cursor"><b>&gt;</b> <span></span></p>
-        </div>
-        <div class="terminal-footer">LAST SYNC: <span id="clock">--:--:--</span> UTC</div>
-      </div>
-    </section>
-
-    <section id="about" class="content-section">
-      <div class="section-label">01 // FOUNDATION</div>
-      <div class="section-heading"><h2>ФОНД SCP FOUNDER</h2><span>ACCESS: LVL-3</span></div>
-      <div class="about-grid">
-        <article class="panel about-main">
-          <div class="panel-icon">⌬</div>
-          <h3>ОНИ НЕ ДОЛЖНЫ УЗНАТЬ.</h3>
-          <p>SCP Founder объединяет серверную инфраструктуру, документацию и инструменты проекта в единую защищённую сеть. Здесь каждая система имеет назначение, каждый сотрудник — уровень допуска, а каждая аномалия — свой протокол.</p>
-          <p class="muted">Любая информация, полученная через данную сеть, считается внутренней собственностью Фонда.</p>
-        </article>
-        <div class="stats">
-          <div class="stat"><strong>05</strong><span>УРОВНЕЙ ДОПУСКА</span></div>
-          <div class="stat"><strong>24/7</strong><span>МОНИТОРИНГ</span></div>
-          <div class="stat"><strong>01</strong><span>ЕДИНАЯ СЕТЬ</span></div>
-          <div class="stat"><strong>∞</strong><span>НЕИЗВЕСТНЫХ</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="protocol" class="content-section protocol-section">
-      <div class="section-label">02 // PROTOCOL</div>
-      <div class="section-heading"><h2>ПРОТОКОЛЫ ФОНДА</h2><span>AUTHORIZED PERSONNEL ONLY</span></div>
-      <div class="protocol-grid">
-        <article class="protocol-card"><span class="num">01</span><h3>КОНТЕЙНМЕНТ</h3><p>Сдерживание аномальных явлений и предотвращение несанкционированного контакта.</p><b>STATUS: ACTIVE</b></article>
-        <article class="protocol-card"><span class="num">02</span><h3>КЛАССИФИКАЦИЯ</h3><p>Каждый объект получает индивидуальную запись, класс содержания и уровень угрозы.</p><b>STATUS: ACTIVE</b></article>
-        <article class="protocol-card"><span class="num">03</span><h3>ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ</h3><p>Данные разделяются по уровням доступа. Попытка обхода ограничений фиксируется системой.</p><b>STATUS: ACTIVE</b></article>
-      </div>
-    </section>
-
-    <section id="objects" class="content-section">
-      <div class="section-label">03 // DATABASE</div>
-      <div class="section-heading"><h2>ОБЪЕКТЫ СИСТЕМЫ</h2><span>DATABASE // 3 RECORDS</span></div>
-      <div class="objects-table">
-        <div class="table-head"><span>ID</span><span>НАЗВАНИЕ</span><span>КЛАСС</span><span>СТАТУС</span></div>
-        <article class="object-row"><span class="object-id">SCP-F/001</span><span><strong>FOUNDER CORE</strong><small>Центральная инфраструктура</small></span><span class="class-safe">SAFE</span><span><i></i> STABLE</span></article>
-        <article class="object-row"><span class="object-id">SCP-F/002</span><span><strong>BLACK ARCHIVE</strong><small>Закрытый архив документов</small></span><span class="class-euclid">EUCLID</span><span><i></i> MONITORED</span></article>
-        <article class="object-row"><span class="object-id">SCP-F/███</span><span><strong>REDACTED</strong><small>Данные удалены уровнем O5</small></span><span class="class-keter">KETER</span><span class="danger-text"><i></i> UNKNOWN</span></article>
-      </div>
-    </section>
-
-    <section id="download" class="access-section">
-      <div class="access-copy"><div class="section-label">04 // SECURE ACCESS</div><h2>ГОТОВЫ К ЗАДАНИЮ?</h2><p>Получите доступ к необходимым ресурсам Фонда. Некоторые материалы требуют повышенного уровня допуска.</p></div>
-      <div class="access-card"><div class="access-top"><span>ACCESS TERMINAL</span><span>● SECURE</span></div><div class="access-level">LEVEL <strong>03</strong></div><div class="access-line"></div><a class="button button-primary full" href="#">ОТКРЫТЬ РАЗДЕЛ ЗАГРУЗОК →</a><small>Все действия записываются в журнал аудита.</small></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div><strong>SCP FOUNDER</strong><span>Secure Foundation Network</span></div>
-    <div class="footer-warning">⚠ НЕСАНКЦИОНИРОВАННЫЙ ДОСТУП ЗАПРЕЩЁН</div>
-    <div>© 2026 // FOUNDATION</div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="red-glow"></div><div class="grid"></div>
+<header class="nav"><a class="logo" href="#home"><span class="logo-box">SCP</span><span>FOUNDER</span></a><nav><a href="#about">О СЕРВЕРЕ</a><a href="#modes">РЕЖИМЫ</a><a href="#download">СКАЧАТЬ</a><a href="#rules">ПРАВИЛА</a></nav><a class="play-small" href="#play">ИГРАТЬ</a></header>
+<main id="home">
+<section class="hero">
+ <div class="hero-bg"></div><div class="hero-content">
+  <div class="tag"><span></span> MINECRAFT SERVER // SCP UNIVERSE</div>
+  <h1>SCP<br><strong>FOUNDER</strong></h1>
+  <p>Ты не должен был сюда попасть.<br>Теперь твоя задача — <b>выжить.</b></p>
+  <div class="hero-buttons"><a class="btn red" href="#play">▶ ИГРАТЬ НА СЕРВЕРЕ</a><a class="btn dark" href="#download">↓ СКАЧАТЬ СБОРКУ</a></div>
+  <div class="server-line"><span class="online-dot"></span><span>СЕРВЕР ОНЛАЙН</span><i></i><span>JAVA EDITION</span><i></i><span>1.20.1</span></div>
+ </div>
+ <div class="hero-art"><div class="crosshair"></div><div class="containment"><div class="warning">⚠</div><span>CONTAINMENT</span><strong>BREACH</strong><small>SECURITY LEVEL: 04</small></div><div class="coordinates">X: 1734 &nbsp; Y: 42 &nbsp; Z: -921</div></div>
+</section>
+<section id="play" class="connect"><div><div class="label">// ПОДКЛЮЧЕНИЕ</div><h2>ВХОД В ОБЪЕКТ</h2><p>Скопируй IP и подключайся. Остальное Фонд объяснит сам.</p></div><div class="ip-card"><div><small>SERVER ADDRESS</small><strong id="ip">play.scp-founder.ru</strong></div><button id="copy">КОПИРОВАТЬ</button><em id="copied">СКОПИРОВАНО</em></div></section>
+<section id="about" class="section"><div class="label">01 // PROJECT</div><div class="title-row"><h2>ПОЧЕМУ SCP FOUNDER?</h2><span>CLASSIFIED PROJECT</span></div><div class="feature-grid"><article><div class="ico">◈</div><h3>АТМОСФЕРА SCP</h3><p>Секретные комплексы, аномальные объекты, тревоги и события. Мир сервера построен вокруг атмосферы SCP.</p></article><article><div class="ico">▣</div><h3>ИГРОВЫЕ РЕЖИМЫ</h3><p>Испытания, выживание и командные сценарии. Каждый режим — отдельная операция Фонда.</p></article><article><div class="ico">⚠</div><h3>ЖИВОЙ МИР</h3><p>События происходят не только по расписанию. Следи за новостями, заданиями и активностью персонала.</p></article></div></section>
+<section id="modes" class="section dark-section"><div class="label">02 // OPERATIONS</div><div class="title-row"><h2>РЕЖИМЫ СЕРВЕРА</h2><span>SELECT MISSION</span></div><div class="mode-grid"><article class="mode"><div class="mode-num">01</div><div class="mode-image zombie"><span>CLASSIFIED</span></div><h3>ZOMBIE VOLN</h3><p>Выдержи волну за волной. Чем дольше живёшь — тем опаснее становится объект.</p><a href="#play">ПОДРОБНЕЕ →</a></article><article class="mode"><div class="mode-num">02</div><div class="mode-image dbd"><span>OPERATION</span></div><h3>DEAD BY DAYLIGHT</h3><p>Один охотник. Несколько выживших. Беги, прячься и не дай себя поймать.</p><a href="#play">ПОДРОБНЕЕ →</a></article><article class="mode locked"><div class="mode-num">03</div><div class="mode-image bunker"><span>IN DEVELOPMENT</span></div><h3>BUNKER</h3><p>Новая операция находится на стадии разработки.</p><a href="#play">СЛЕДИТЬ →</a></article></div></section>
+<section id="download" class="download"><div class="download-copy"><div class="label">03 // EQUIPMENT</div><h2>ПОДГОТОВЬСЯ<br>К ЗАДАНИЮ.</h2><p>Для игры может потребоваться серверная сборка и ресурспак. Скачай всё необходимое перед подключением.</p></div><div class="downloads"><a href="#" class="download-item"><span class="file">ZIP</span><div><strong>SERVER PACK</strong><small>Полная сборка проекта</small></div><b>↓</b></a><a href="#" class="download-item"><span class="file">ZIP</span><div><strong>RESOURCE PACK</strong><small>Текстуры SCP Founder</small></div><b>↓</b></a><a href="#" class="download-item"><span class="file">TXT</span><div><strong>ИНСТРУКЦИЯ</strong><small>Подключение к серверу</small></div><b>↓</b></a></div></section>
+<section id="rules" class="section rules"><div class="label">04 // FOUNDATION CODE</div><div class="title-row"><h2>ПРАВИЛА ФОНДА</h2><span>READ BEFORE ENTRY</span></div><div class="rules-list"><div><b>01</b><span>Не мешай другим игрокам получать удовольствие от игры.</span></div><div><b>02</b><span>Запрещены читы, эксплойты и намеренное использование багов.</span></div><div><b>03</b><span>Соблюдай указания администрации и игровые правила проекта.</span></div><div><b>04</b><span>Любая попытка получить закрытую информацию фиксируется.</span></div></div></section>
+</main>
+<footer><div class="logo"><span class="logo-box">SCP</span><span>FOUNDER</span></div><span>© 2026 SCP FOUNDER // MINECRAFT SERVER</span><span>SECURITY LEVEL: <b>PUBLIC</b></span></footer>
+<script src="script.js"></script>
+</body></html>
