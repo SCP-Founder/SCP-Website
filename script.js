@@ -11,40 +11,42 @@
     });
   }
 
-  // Проверка Minecraft Java-сервера через публичный статус API.
-  // Используем mcstatus.io, чтобы браузеру не требовалось прямое подключение к Minecraft-порту.
+  // Minecraft Java status. query=false makes the request faster and avoids
+  // failures on servers that do not expose the optional Query protocol.
   const host = 'd2.atlantix.me:25035';
-  const statusUrl = `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(host)}`;
+  const statusUrl = `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(host)}?query=false&timeout=10`;
   const status = document.querySelector('#serverStatus');
   const title = document.querySelector('#statusTitle');
   const text = document.querySelector('#statusText');
   const players = document.querySelector('#players');
   const dot = document.querySelector('#statusDot');
 
+  function setState(state, message, count = '—') {
+    if (status) status.textContent = state;
+    if (title) title.textContent = state;
+    if (text) text.textContent = message;
+    if (players) players.textContent = count;
+    if (dot) dot.className = `status-dot ${state === 'СЕРВЕР ОНЛАЙН' ? 'online' : state === 'СЕРВЕР ОФФЛАЙН' ? 'offline' : ''}`;
+  }
+
   async function checkServer() {
     try {
-      const response = await fetch(statusUrl, { cache: 'no-store' });
-      if (!response.ok) throw new Error('API error');
+      const response = await fetch(statusUrl, { method: 'GET', cache: 'no-store' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
-      if (data.online) {
-        const online = data.players?.online ?? 0;
-        const max = data.players?.max ?? 0;
-        if (status) status.textContent = 'СЕРВЕР ОНЛАЙН';
-        if (title) title.textContent = 'СЕРВЕР ОНЛАЙН';
-        if (text) text.textContent = `Сейчас на сервере ${online} из ${max} игроков`;
-        if (players) players.textContent = online;
-        if (dot) dot.className = 'status-dot online';
-      } else {
-        throw new Error('offline');
+      if (!data.online) {
+        setState('СЕРВЕР ОФФЛАЙН', 'Сервер сейчас не отвечает на запросы Minecraft');
+        return;
       }
-    } catch (_) {
-      if (status) status.textContent = 'СЕРВЕР НЕДОСТУПЕН';
-      if (title) title.textContent = 'СТАТУС НЕ ОПРЕДЕЛЁН';
-      if (text) text.textContent = 'Не удалось получить информацию о сервере';
-      if (players) players.textContent = '—';
-      if (dot) dot.className = 'status-dot offline';
+      const online = Number(data.players?.online ?? 0);
+      const max = Number(data.players?.max ?? 0);
+      setState('СЕРВЕР ОНЛАЙН', `Сейчас на сервере ${online} из ${max} игроков`, online);
+    } catch (error) {
+      console.warn('SCP Founder server status error:', error);
+      setState('СТАТУС НЕ ОПРЕДЕЛЁН', 'Сервис проверки не смог получить ответ. Повторная проверка через 30 секунд.');
     }
   }
+
   checkServer();
   setInterval(checkServer, 30000);
 
