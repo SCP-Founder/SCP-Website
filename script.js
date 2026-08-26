@@ -33,7 +33,6 @@
     if (text) text.textContent = message;
     if (players) players.textContent = count;
     if (dot) dot.className = `status-dot ${mode}`;
-
     if (homeStatusText) homeStatusText.textContent = state;
     if (homeStatusSub) homeStatusSub.textContent = message || (mode === 'offline' ? 'Сервер сейчас недоступен' : 'Состояние сервера определено');
     if (homePlayers) homePlayers.textContent = count;
@@ -45,12 +44,10 @@
       const response = await fetch(statusUrl, { method: 'GET', cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
-
       if (!data.online) {
         setState('СЕРВЕР ОФФЛАЙН', 'Сервер сейчас недоступен', '—', 'offline');
         return;
       }
-
       const online = Number(data.players?.online ?? 0);
       const max = Number(data.players?.max ?? 0);
       setState('СЕРВЕР ОНЛАЙН', `Игроков онлайн: ${online} / ${max}`, online, 'online');
@@ -63,15 +60,26 @@
   checkServer();
   setInterval(checkServer, 30000);
 
+  function scrollToHashTarget() {
+    const hash = window.location.hash;
+    if (!hash) return;
+    let target = document.querySelector(hash);
+    if (!target && hash === '#access-levels') target = document.querySelector('.iceberg-card');
+    if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
         event.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', link.getAttribute('href'));
       }
     });
   });
+
+  scrollToHashTarget();
 
   const hero = document.querySelector('.hero');
   const art = document.querySelector('.hero-art');
