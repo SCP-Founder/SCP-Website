@@ -18,6 +18,10 @@
   const host = 'd2.atlantix.me:25035';
   const statusUrl = `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(host)}?query=false&timeout=10`;
   const status = document.querySelector('#serverStatus');
+  const homeStatusText = document.querySelector('#homeStatusText');
+  const homeStatusSub = document.querySelector('#homeStatusSub');
+  const homePlayers = document.querySelector('#homePlayers');
+  const homeStatusDot = document.querySelector('#homeStatusDot');
   const title = document.querySelector('#statusTitle');
   const text = document.querySelector('#statusText');
   const players = document.querySelector('#players');
@@ -29,6 +33,11 @@
     if (text) text.textContent = message;
     if (players) players.textContent = count;
     if (dot) dot.className = `status-dot ${mode}`;
+
+    if (homeStatusText) homeStatusText.textContent = state;
+    if (homeStatusSub) homeStatusSub.textContent = message || (mode === 'offline' ? 'Сервер сейчас недоступен' : 'Состояние сервера определено');
+    if (homePlayers) homePlayers.textContent = count;
+    if (homeStatusDot) homeStatusDot.className = `status-dot ${mode}`;
   }
 
   async function checkServer() {
@@ -38,7 +47,7 @@
       const data = await response.json();
 
       if (!data.online) {
-        setState('СЕРВЕР ОФФЛАЙН', '', '—', 'offline');
+        setState('СЕРВЕР ОФФЛАЙН', 'Сервер сейчас недоступен', '—', 'offline');
         return;
       }
 
@@ -47,8 +56,7 @@
       setState('СЕРВЕР ОНЛАЙН', `Игроков онлайн: ${online} / ${max}`, online, 'online');
     } catch (error) {
       console.warn('SCP Founder server status error:', error);
-      // Не показываем пользователю технические ошибки внешнего API.
-      setState('СЕРВЕР', '', '—', '');
+      setState('СТАТУС НЕ ОПРЕДЕЛЁН', 'Не удалось получить состояние сервера', '—', '');
     }
   }
 
