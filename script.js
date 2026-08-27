@@ -60,14 +60,6 @@
   checkServer();
   setInterval(checkServer, 30000);
 
-  function scrollToHashTarget() {
-    const hash = window.location.hash;
-    if (!hash) return;
-    let target = document.querySelector(hash);
-    if (!target && hash === '#access-levels') target = document.querySelector('.iceberg-card');
-    if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-  }
-
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
       const target = document.querySelector(link.getAttribute('href'));
@@ -78,8 +70,6 @@
       }
     });
   });
-
-  scrollToHashTarget();
 
   const hero = document.querySelector('.hero');
   const art = document.querySelector('.hero-art');
