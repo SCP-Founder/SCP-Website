@@ -15,7 +15,7 @@
     });
   }
 
-  const host = 'd2.atlantix.me:25035';
+  const host = '77.235.24.140:25565';
   const statusUrl = `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(host)}?query=false&timeout=10`;
   const status = document.querySelector('#serverStatus');
   const homeStatusText = document.querySelector('#homeStatusText');
